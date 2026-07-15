@@ -1,0 +1,170 @@
+/* =========================================
+   RESPONSIVIDADE (O Modelo de Caixas Adaptável)
+   ========================================= */
+
+   @media (max-width: 1024px) {
+    body {
+        /* Reaplicamos o degradê radial para telas médias */
+        background: radial-gradient(circle at center, #1a1a1a 0%, #000000 80%);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        /* Reaplicamos para telemóveis */
+        background: radial-gradient(circle at center, #1a1a1a 0%, #000000 80%);
+    }
+
+    /* Garantimos que a textura de ruído não quebre o layout no mobile */
+    body::before {
+        width: 100%;
+        height: 100%;
+        background-size: cover; /* Ajusta a textura ao tamanho do ecrã */
+    }
+}
+
+/* -----------------------------------------
+   1. TABLETS E ECRÃS MÉDIOS (Até 1024px)
+   Para portáteis pequenos, apenas apertamos um pouco.
+----------------------------------------- */
+@media (max-width: 1024px) {
+    /* O Hero passa a ter um pouco menos de espaço vazio */
+    .hero {
+        padding: var(--space-medium);
+        gap: 1rem;
+    }
+    .hero-conteudo {
+        max-width: 45%; /* Diminui a área do texto para o carrosel caber */
+    }
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+    .hero-galeria {
+        width: 400px;
+    }
+    .porque {
+        padding: var(--space-medium);
+        gap: var(--space-medium);
+    }
+}
+
+/* -----------------------------------------
+   2. TELEMÓVEIS E TABLETS (Até 768px)
+   A GRANDE VIRADA: Tudo passa de Lado-a-Lado para Empilhado.
+----------------------------------------- */
+@media (max-width: 768px) {
+    
+    /* -- O PALCO DO TOPO (Marquee) -- */
+    /* Diminuímos a altura para não ocupar muito espaço no telemóvel */
+    .top-bar {
+        height: 80px; 
+    }
+    .conteudo-rolante span {
+        font-size: 0.9rem; /* Letras menores ficam mais elegantes no mobile */
+    }
+
+    /* -- SECÇÃO HERO -- */
+    .hero {
+        flex-direction: column; /* O SEGREDO: Empilha texto em cima, carrosel em baixo */
+        text-align: center; /* Centraliza todos os textos */
+        padding-top: 2rem;
+        min-height: auto; /* Tira a altura fixa para não sobrar buracos pretos */
+    }
+    .hero-conteudo {
+        max-width: 100%;
+        align-items: center; /* Centraliza a logo e o botão */
+    }
+    .hero-conteudo h1 {
+        font-size: 1.8rem;
+    }
+    .hero .btn-cta {
+        align-self: center; /* O botão deixa de estar à esquerda e vai para o meio */
+        right: 0; /* Remove aquele recuo antigo */
+    }
+    
+    /* Ajuste do Carrosel para não quebrar a tela do telemóvel */
+    .hero-galeria {
+        width: 100%;
+        max-width: 350px;
+        margin-top: 2rem;
+    }
+    .slide {
+        width: 220px;
+        height: 330px;
+    }
+
+    /* -- SECÇÃO MOTIVOS (Por que escolher?) -- */
+    .porque {
+        flex-direction: column; /* Empilha o Título e a Lista */
+        text-align: center;
+        padding: var(--space-small);
+    }
+    .motivos-lista {
+        align-items: flex-start; /* Mantém os ícones de check alinhados à esquerda para leitura fácil */
+        text-align: left;
+    }
+    .motivos-lista li {
+        font-size: 1.2rem; /* Texto ligeiramente mais pequeno */
+    }
+
+    /* -- SECÇÃO VENDEDORES -- */
+    .vendedores-lista {
+        flex-direction: column; /* Um cartão em baixo do outro */
+        align-items: center;
+        gap: 2rem; /* Espaço entre o João Pedro e o Thiago */
+    }
+    .vendedor, .vendedor2 {
+        width: 90%; /* O cartão ocupa 90% da tela do telemóvel */
+        max-width: 320px;
+    }
+
+    /* -- SECÇÃO CTA (Fim da Página) -- */
+    .cta h2 {
+        font-size: 1.5rem;
+        padding: 0 1rem; /* Dá um respiro lateral para o texto não colar no vidro do telemóvel */
+    }
+    .cta img {
+        width: 90%; /* A imagem de mercadoria adapta-se à largura do telemóvel */
+        border-radius: var(--radius);
+    }
+    .texto-botão p {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+}
+
+/* -----------------------------------------
+   3. TELEMÓVEIS PEQUENOS (Até 480px)
+   Ajustes finais de beleza (Tamanho de letra e Margens).
+----------------------------------------- */
+@media (max-width: 480px) {
+    .hero-conteudo h1 {
+        font-size: 1.5rem; /* Ajusta o título gigante para ecrãs muito pequenos */
+    }
+    .hero-conteudo p {
+        font-size: 1rem;
+    }
+    .motivos h2 {
+        font-size: 1.5rem;
+    }
+    .motivos-lista li {
+        font-size: 1.1rem;
+    }
+    .vendedores h2 {
+        font-size: 1.4rem;
+        padding: 0 1rem;
+    }
+    
+    /* Ajuste fino no Rodapé */
+    .footer {
+        padding: 1rem;
+        margin-top: -20px; /* Reduzimos o trator para cima para não "engolir" a linha no telemóvel */
+    }
+    .rodape img {
+        width: 120px; /* Logo mais delicada */
+        margin-bottom: 0; /* Zera qualquer margem negativa antiga */
+    }
+    .creditos {
+        font-size: 0.9rem;
+    }
+}
