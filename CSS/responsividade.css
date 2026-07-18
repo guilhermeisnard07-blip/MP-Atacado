@@ -225,6 +225,9 @@
             /* No mobile, exibe apenas 1 item por vez para ficar bem legível */
             flex: 0 0 calc(100% - 20px);
             min-width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             /* Garante que a imagem não fique minúscula */
         }
 
