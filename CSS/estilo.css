@@ -454,7 +454,7 @@ body::before {
     gap: 1.5rem;
     border-radius: var(--radius);
     transition: transform 0.3s, border-color 0.3s;
-    animation: flutuar 2s ease-in-out infinite;
+    animation: flutuar 2.5s ease-in-out infinite;
     box-shadow: 0 5px 25px rgba(224, 182, 70, 0.15);
 }
 
@@ -548,6 +548,73 @@ body::before {
     margin: 0;
 }
 
+/* Feedback */
+
+.feedback{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-medium);
+}
+
+.feedback-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ajuste conforme seu layout */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: linear-gradient(to right, #B38728, #FBF5B7, #E0B646, #8B6914);    border: none;
+     -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.feedback h2{
+    font-family: var(--font-title);
+    font-size: 2rem;
+}
+
+.slide-feedback {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 20px 0;
+    width: 100%;
+    scrollbar-width: none; /* Esconde barra de rolagem */
+}
+
+.slide-feedback::-webkit-scrollbar { display: none; }
+
+.slide-feedback .item {
+    flex: 0 0 calc((100% - 32px) / 3);
+    height: auto;
+    min-width: 300px;
+    scroll-snap-align: start;
+}
+
+.slide-feedback .item img{
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 25px rgba(224, 182, 70, 0.15);
+}
+
 /* CTA */
 
 .cta{
@@ -560,7 +627,7 @@ body::before {
 .cta h2{
     font-family: var(--font-title);
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .cta .texto{
@@ -576,6 +643,8 @@ body::before {
 .cta img{
     display: flex;
     align-items: center;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 25px rgba(224, 182, 70, 0.15);
 }
 
 .cta .btn-cta{
